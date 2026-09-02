@@ -34,6 +34,6 @@ class IndexController extends Controller
             ]);
         }
 
-        return $this->response->send();
+        return $this->response;
     }
 }

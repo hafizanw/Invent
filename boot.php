@@ -60,11 +60,15 @@ $di->setShared('url', function () use ($di) {
     return $url;
 });
 
-// 4. Register View Service
 $di->setShared('view', function () use ($di) {
     $config = $di->getShared('config');
+
     $view = new View();
-    $view->setViewsDir($config->application->viewsDir);
+
+    $view->setViewsDir(
+        $config->application->viewsDir
+    );
+
     return $view;
 });
 

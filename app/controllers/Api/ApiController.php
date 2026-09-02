@@ -17,6 +17,6 @@ class ApiController extends Controller
             'version'   => '1.0.0'
         ]);
 
-        return $this->response->send();
+        return $this->response;
     }
 }
