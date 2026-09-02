@@ -3,9 +3,9 @@
 use Phalcon\Di\FactoryDefault;
 use Phalcon\Mvc\Application;
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
-use Phalcon\Url as UrlProvider;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\Router;
+use Phalcon\Mvc\Url;
 
 // Register Composer Autoloader
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
@@ -55,7 +55,7 @@ $di->setShared('db', function () use ($di) {
 // 3. Register URL Provider Service
 $di->setShared('url', function () use ($di) {
     $config = $di->getShared('config');
-    $url = new UrlProvider();
+    $url = new Url();
     $url->setBaseUri($config->application->baseUri);
     return $url;
 });
