@@ -1,0 +1,25 @@
+# Vendor Dependencies
+/vendor/
+
+# Environment file
+.env
+konfigurasi.php
+
+# Storage Logs and Cache
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/cache/*
+!/storage/cache/.gitkeep
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Docker local overrides
+docker-compose.override.yml
