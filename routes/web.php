@@ -13,3 +13,15 @@ $router->add('/db-check', [
     'controller' => 'index',
     'action'     => 'dbCheck',
 ]);
+
+$router->add('/ping', [
+    'namespace'  => 'App\Controllers\Web',
+    'controller' => 'index',
+    'action'     => 'ping',
+]);
+
+$router->add('/ping/{name:[a-zA-Z]+}', [
+    'namespace'  => 'App\Controllers\Web',
+    'controller' => 'index',
+    'action'     => 'ping',
+]);
