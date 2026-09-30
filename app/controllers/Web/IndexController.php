@@ -40,5 +40,30 @@ class IndexController extends Controller
         }
 
         return $this->response;
-    }    
+    }
+
+    public function loginTestAction()
+    {
+        $this->view->disable();
+
+        // Hardcode dulu untuk uji coba, nanti di Controller asli ini datang dari form/request
+        $email    = 'admin@invent.test';
+        $password = 'password123'; // ganti sesuai password asli yang kamu hash
+
+        $authService = new \App\Services\AuthService();
+        $authService->setDI($this->di); // inject DI manual karena kita buat object pakai 'new'
+
+        $result = $authService->attempt($email, $password);
+
+        // Buktikan session benar-benar tersimpan setelah attempt()
+        $sessionData = $this->session->get('auth');
+
+        $this->response->setJsonContent([
+            'attempt_result'  => $result,
+            'is_logged_in'    => $authService->check(),
+            'session_content' => $sessionData,
+        ]);
+
+        return $this->response;
+    }
 }
